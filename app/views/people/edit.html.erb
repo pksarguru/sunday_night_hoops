@@ -1,0 +1,37 @@
+<!-- Validation failure messages -->
+<% if @person.errors.any? %>
+  <% @person.errors.full_messages.each do |message| %>
+    <div class="alert alert-dismissable alert-danger">
+      <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+      <%= message %>
+    </div>
+  <% end %>
+<% end %>
+
+<div class="page-header">
+  <h3>Edit Person #<%= @person.id %></h3>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <form action="/update_person/<%= @person.id %>" method="post">
+      <!-- Hidden input for authenticity token to protect from forgery -->
+      <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+
+      <!-- Label and input for email -->
+      <div class="form-group">
+        <label for="email" class="control-label">
+          Email
+        </label>
+
+        <input type="text" id="email" name="email" placeholder="Email" class="form-control" value="<%= @person.email %>">
+      </div>
+
+      <button class="btn btn-warning">
+        Update Person
+      </button>
+      or
+      <a href="/people/<%= @person.id %>">Cancel</a>
+    </form>
+  </div>
+</div>
