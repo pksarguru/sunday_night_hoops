@@ -1,6 +1,7 @@
 class GamesController < ApplicationController
   def index
-    @games = Game.all
+    @games = Game.where("game_date > ?", Date.today)
+    @people = Person.all
 
     render("games/index.html.erb")
   end

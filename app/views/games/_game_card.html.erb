@@ -1,25 +1,32 @@
-<div class="row">
+<div class="row p-3">
   <div class="col-md-12">
     <div class="card">
       <h3 class="card-header">
         <div class="row">
           <div class="col-md-6">
-            <%= Date.today %>
+            <%= game.game_date %>
           </div>
 
           <div class="col-md-6">
-            Players:
+            Players: <%= game.players.count %>
           </div>
 
         </div>
       </h3>
       <div class="card-block">
-        <h4 class="card-title">Special title treatment</h4>
-        <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+        <p>
+          Current Players:
+        </p>
+
         <ul>
-          <li>one</li>
-          <li>two</li>
+          <% game.players.each do |player| %>
+            <li><%= player.name %></li>
+          <% end %>
         </ul>
+
+        <a class="btn btn-success btn-lg" method="post" href="/create_player" role="button" data-toggle="modal" data-target="#selectPlayerModal">
+          Join Game
+        </a>
       </div>
     </div>
   </div>

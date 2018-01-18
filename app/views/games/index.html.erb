@@ -5,6 +5,12 @@
   </h1>
 </div>
 
-<!-- <%= render "games/current_game_card" %> -->
+<%= render partial: "games/current_game_card", locals: { game: @games.first } %>
 
-<%= render "games/game_card" %>
+<% @games.each do |game| %>
+  <%= render partial: "games/game_card", locals: { game: game } %>
+<% end %>
+
+<div class="modal fade" id="selectPlayerModal" tabindex="-1" role="dialog">
+    <%= render partial: "people/select_modal", locals: { people: @people } %>
+</div>
