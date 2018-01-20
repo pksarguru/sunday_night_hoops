@@ -1,7 +1,13 @@
 <div class="jumbotron">
   <div class="row">
+    <h1 class="display-3">
+      This Week's Game
+    </h1>
+  </div>
+
+  <div class="row">
     <div class="col-md-6">
-      <h1 class="display-3"><%= game.game_date %></h1>
+      <h1 class="display-4"><%= game.game_date %></h1>
     </div>
 
     <div class="col-md-6">
@@ -19,6 +25,10 @@
     <% game.players.each do |player| %>
       <li class="list-group-item">
         <%= player.name %>
+
+        <% if player.guests > 0 %>
+        + <%= player.guests %> Guests
+        <% end %>
 
         <span>
           <form action="/players/<%= player.id %>" method="post">
