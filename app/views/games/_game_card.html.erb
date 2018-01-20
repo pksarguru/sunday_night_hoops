@@ -19,8 +19,8 @@
         </p>
 
         <ul>
-          <% game.players.each do |player| %>
-            <li><%= player.name %></li>
+          <% game.people.each do |person| %>
+            <li><%= person.name %></li>
           <% end %>
         </ul>
 
@@ -30,4 +30,8 @@
       </div>
     </div>
   </div>
+</div>
+
+<div class="modal fade" id="selectPlayerModal" tabindex="-1" role="dialog">
+    <%= render partial: "people/select_modal", locals: { people: people, game: game } %>
 </div>

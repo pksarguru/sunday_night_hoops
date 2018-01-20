@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   # Routes for the Player resource:
   # CREATE
   get "/players/new", :controller => "players", :action => "new"
-  post "/create_player", :controller => "players", :action => "create"
+  post "/players", :controller => "players", :action => "create"
 
   # READ
   get "/players", :controller => "players", :action => "index"
@@ -14,7 +14,7 @@ Rails.application.routes.draw do
   post "/update_player/:id", :controller => "players", :action => "update"
 
   # DELETE
-  get "/delete_player/:id", :controller => "players", :action => "destroy"
+  delete "/players/:id", :controller => "players", :action => "destroy"
   #------------------------------
 
   # Routes for the Game resource:

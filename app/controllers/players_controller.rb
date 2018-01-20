@@ -27,7 +27,7 @@ class PlayersController < ApplicationController
     save_status = @player.save
 
     if save_status == true
-      redirect_to("/players/#{@player.id}", :notice => "Player created successfully.")
+      redirect_to("/", :notice => "Added to game successfully.")
     else
       render("players/new.html.erb")
     end

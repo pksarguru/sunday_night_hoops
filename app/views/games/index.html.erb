@@ -8,9 +8,5 @@
 <%= render partial: "games/current_game_card", locals: { game: @games.first } %>
 
 <% @games.each do |game| %>
-  <%= render partial: "games/game_card", locals: { game: game } %>
+  <%= render partial: "games/game_card", locals: { game: game, people: @people } %>
 <% end %>
-
-<div class="modal fade" id="selectPlayerModal" tabindex="-1" role="dialog">
-    <%= render partial: "people/select_modal", locals: { people: @people } %>
-</div>

@@ -9,25 +9,30 @@
         <span aria-hidden="true">&times;</span>
       </button>
     </div>
+    <form action="/players" method="post">
+      <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
 
-    <div class="modal-body">
-      <ul>
-        <% people.each do |person| %>
-          <div class="row">
-            <div class="col-md-12 p-1">
-              <a role="button" class="btn btn-primary">
-                <%= person.name %>
-              </a>
+      <input type="hidden" name="game_id" value="<%= game.id %>">
+
+      <div class="modal-body">
+        <ul>
+          <% people.each do |person| %>
+            <div class="row">
+              <div class="col-md-12 p-1">
+                <button role="button" class="btn btn-primary" name="person_id" value="<%= person.id %>">
+                  <%= person.name %>
+                </button>
+              </div>
             </div>
-          </div>
-        <% end %>
-      </ul>
-    </div>
+          <% end %>
+        </ul>
+      </div>
 
-    <div class="modal-footer">
-      <button type="button" class="btn btn-success">
-        Save changes
-      </button>
-    </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-success">
+          Save Changes
+        </button>
+      </div>
+    </form>
   </div>
 </div>

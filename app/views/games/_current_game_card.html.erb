@@ -15,15 +15,31 @@
     Current Players:
   </p>
 
-  <ul>
+  <ul class="list-group">
     <% game.players.each do |player| %>
-      <li><%= player.name %></li>
+      <li class="list-group-item">
+        <%= player.name %>
+
+        <span>
+          <form action="/players/<%= player.id %>" method="post">
+            <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+
+            <input type="hidden" name="_method" value="delete">
+
+            <button type="submit" class="close" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </form>
+        </span>
+      </li>
     <% end %>
   </ul>
 
-  <p class="lead">
-    <a class="btn btn-success btn-lg" href="#" type="button" data-toggle="modal" data-target="#selectPlayerModal">
-      Join Game
-    </a>
-  </p>
+  <a class="btn btn-success btn-lg" href="#" type="button" data-toggle="modal" data-target="#selectPlayerModal">
+    Join Game
+  </a>
+</div>
+
+<div class="modal fade" id="selectPlayerModal" tabindex="-1" role="dialog">
+    <%= render partial: "people/select_modal", locals: { people: game.available_people, game: game } %>
 </div>

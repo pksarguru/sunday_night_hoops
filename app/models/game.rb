@@ -11,9 +11,13 @@
 
 class Game < ApplicationRecord
   has_many :players, :class_name => "Player", :dependent => :destroy
-  has_many :people, :through => :players, :source => :person
+  has_many :people, through: :players
 
   def game_on?
     # method to count total players + guest is above 8
+  end
+
+  def available_people
+    Person.where.not(id: self.people.pluck(:id))
   end
 end
