@@ -20,4 +20,12 @@ class Game < ApplicationRecord
   def available_people
     Person.where.not(id: self.people.pluck(:id))
   end
+
+  def player_count
+    if self.players.count > 0
+      self.players.count + self.players.sum(&:guests)
+    else
+      0
+    end
+  end
 end
