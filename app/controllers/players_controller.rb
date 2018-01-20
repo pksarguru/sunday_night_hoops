@@ -1,16 +1,4 @@
 class PlayersController < ApplicationController
-  def index
-    @players = Player.all
-
-    render("players/index.html.erb")
-  end
-
-  def show
-    @player = Player.find(params[:id])
-
-    render("players/show.html.erb")
-  end
-
   def new
     @player = Player.new
 

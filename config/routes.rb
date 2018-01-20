@@ -5,10 +5,6 @@ Rails.application.routes.draw do
   get "/players/new", :controller => "players", :action => "new"
   post "/players", :controller => "players", :action => "create"
 
-  # READ
-  get "/players", :controller => "players", :action => "index"
-  get "/players/:id", :controller => "players", :action => "show"
-
   # UPDATE
   get "/players/:id/edit", :controller => "players", :action => "edit"
   post "/update_player/:id", :controller => "players", :action => "update"

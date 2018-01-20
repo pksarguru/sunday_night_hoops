@@ -21,11 +21,12 @@ class PeopleController < ApplicationController
     @person = Person.new
 
     @person.email = params[:email]
+    @person.name = params[:name]
 
     save_status = @person.save
 
     if save_status == true
-      redirect_to("/people/#{@person.id}", :notice => "Person created successfully.")
+      redirect_to("/", :notice => "Person created successfully.")
     else
       render("people/new.html.erb")
     end
