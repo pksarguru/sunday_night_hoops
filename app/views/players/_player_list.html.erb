@@ -1,0 +1,27 @@
+<p>
+  Current Players:
+</p>
+
+<ul class="list-group">
+  <% game.players.each do |player| %>
+    <li class="list-group-item">
+      <%= player.name %>
+
+      <% if player.guests > 0 %>
+      + <%= player.guests %> Guests
+      <% end %>
+
+      <span>
+        <form action="/players/<%= player.id %>" method="post">
+          <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+
+          <input type="hidden" name="_method" value="delete">
+
+          <button type="submit" class="btn btn-danger" aria-label="Remove">
+            Remove
+          </button>
+        </form>
+      </span>
+    </li>
+  <% end %>
+</ul>

@@ -14,15 +14,11 @@
         </div>
       </h3>
       <div class="card-block">
-        <p>
-          Current Players:
-        </p>
-
-        <ul>
-          <% game.people.each do |person| %>
-            <li><%= person.name %></li>
-          <% end %>
-        </ul>
+        <% if game.players.length > 0 %>
+          <%= render partial: "players/player_list", locals: { game: game } %>
+        <% else %>
+          <p>No Players Yet!</p>
+        <% end %>
 
         <a class="btn btn-success btn-lg" method="post" href="/create_player" role="button" data-toggle="modal" data-target="#selectPlayerModal">
           Join Game
