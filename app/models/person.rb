@@ -10,10 +10,20 @@
 #
 
 class Person < ApplicationRecord
+  attr_accessor :first_name, :last_name
+
   has_many :players, :class_name => "Player", :dependent => :destroy
   has_many :games, :through => :players, :source => :game
 
-  def collate_name(first_name:, last_name:)
-    self.name = first_name + " " + last_name
+  def first_name
+    self.name.split(' ').first
+  end
+
+  def last_name
+    self.name.split(' ').last
+  end
+
+  def collate_name
+    self.name = first_name.strip! + " " + last_name.strip!
   end
 end

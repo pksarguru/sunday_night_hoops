@@ -5,12 +5,6 @@ class PeopleController < ApplicationController
     render("people/index.html.erb")
   end
 
-  def show
-    @person = Person.find(params[:id])
-
-    render("people/show.html.erb")
-  end
-
   def new
     @person = Person.new
 
@@ -21,7 +15,9 @@ class PeopleController < ApplicationController
     @person = Person.new
 
     @person.email = params[:email]
-    @person.name = params[:name]
+    @person.first_name = params[:first_name]
+    @person.last_name = params[:last_name]
+    @person.collate_name
 
     save_status = @person.save
 
@@ -42,6 +38,9 @@ class PeopleController < ApplicationController
     @person = Person.find(params[:id])
 
     @person.email = params[:email]
+    @person.first_name = params[:first_name]
+    @person.last_name = params[:last_name]
+    @person.collate_name
 
     save_status = @person.save
 
