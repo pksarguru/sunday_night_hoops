@@ -17,15 +17,19 @@
     </div>
   </div>
 
-  <% if game.players.length > 0 %>
-    <%= render partial: "players/player_list", locals: { game: game } %>
-  <% else %>
-    <p>No Players Yet!</p>
-  <% end %>
+  <div class="mb-5">  
+    <% if game.players.length > 0 %>
+      <%= render partial: "players/player_list", locals: { game: game } %>
+    <% else %>
+      <p>No Players Yet!</p>
+    <% end %>
+  </div>
 
-  <a class="btn btn-success btn-lg" href="#" type="button" data-toggle="modal" data-target="#selectPlayerModal">
-    Join Game
-  </a>
+  <p class="lead">
+    <a class="btn btn-success btn-lg" href="#" role="button" data-toggle="modal" data-target="#selectPlayerModal">
+      Join Game
+    </a>
+  </p>
 </div>
 
 <div class="modal fade" id="selectPlayerModal" tabindex="-1" role="dialog">
