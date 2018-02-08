@@ -14,5 +14,5 @@ class Player < ApplicationRecord
   belongs_to :person
   belongs_to :game
 
-  delegate :name, to: :person
+  delegate :full_name, to: :person
 end

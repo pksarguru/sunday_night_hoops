@@ -30,14 +30,12 @@ class PlayersController < ApplicationController
   def update
     @player = Player.find(params[:id])
 
-    @player.person_id = params[:person_id]
-    @player.game_id = params[:game_id]
     @player.guests = params[:guests]
 
     save_status = @player.save
 
     if save_status == true
-      redirect_to("/players/#{@player.id}", :notice => "Player updated successfully.")
+      redirect_to("/", :notice => "Player updated successfully.")
     else
       render("players/edit.html.erb")
     end
@@ -49,9 +47,9 @@ class PlayersController < ApplicationController
     @player.destroy
 
     if URI(request.referer).path == "/players/#{@player.id}"
-      redirect_to("/", :notice => "Player deleted.")
+      redirect_to("/", :notice => "Player removed.")
     else
-      redirect_back(:fallback_location => "/", :notice => "Player deleted.")
+      redirect_back(:fallback_location => "/", :notice => "Player removed.")
     end
   end
 end

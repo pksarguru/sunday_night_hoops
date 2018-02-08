@@ -1,6 +1,6 @@
 class PeopleController < ApplicationController
   def index
-    @people = Person.all
+    @people = Person.all.order(:first_name)
 
     render("people/index.html.erb")
   end
@@ -17,7 +17,6 @@ class PeopleController < ApplicationController
     @person.email = params[:email]
     @person.first_name = params[:first_name]
     @person.last_name = params[:last_name]
-    @person.collate_name
 
     save_status = @person.save
 
@@ -40,12 +39,11 @@ class PeopleController < ApplicationController
     @person.email = params[:email]
     @person.first_name = params[:first_name]
     @person.last_name = params[:last_name]
-    @person.collate_name
 
     save_status = @person.save
 
     if save_status == true
-      redirect_to("/people/#{@person.id}", :notice => "Person updated successfully.")
+      redirect_to("/people", :notice => "Person updated successfully.")
     else
       render("people/edit.html.erb")
     end

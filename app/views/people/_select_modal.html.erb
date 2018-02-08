@@ -19,7 +19,7 @@
           <select class="form-control" name="person_id">
             <% people.each do |person| %>
               <option value="<%= person.id %>">
-                <%= person.name %>
+                <%= person.full_name %>
               </option>
             <% end %>
           </select>
@@ -36,17 +36,19 @@
         </div>
       </div>
 
-      <button type="submit" class="btn btn-success">
-        Save Changes
-      </button>
+      <div class="form group">
+        <button type="submit" class="btn btn-success">
+          Save Changes
+        </button>
 
-      <div class="">
-        Or:
+        <div class="">
+          Or:
+        </div>
+
+        <a class="btn btn-success" href="/people/new">
+          Add A New Player
+        </a>
       </div>
-
-      <a class="btn btn-success" href="/people/new">
-        Add A New Player
-      </a>
     </form>
   </div>
 </div>

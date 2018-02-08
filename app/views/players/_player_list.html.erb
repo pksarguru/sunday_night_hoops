@@ -5,7 +5,7 @@
 <ul class="list-group">
   <% game.players.each do |player| %>
     <li class="list-group-item">
-      <%= player.name %>
+      <%= player.full_name %>
 
       <% if player.guests > 0 %>
       + <%= player.guests %> Guests
@@ -17,6 +17,7 @@
 
           <input type="hidden" name="_method" value="delete">
 
+          <a href="/players/<%= player.id %>/edit" class="btn btn-warning">Edit Guests</a>
           <button type="submit" class="btn btn-danger" aria-label="Remove">
             Remove
           </button>

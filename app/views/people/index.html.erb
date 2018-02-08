@@ -1,7 +1,9 @@
 <div class="page-header">
   <h1>
-    People
-    <a href="/people/new" class="btn btn-lg btn-success">New Person</a>
+    Players
+    <a href="/people/new" class="btn btn-lg btn-success">
+      Add New Player
+    </a>
   </h1>
 </div>
 
@@ -16,7 +18,7 @@
 
       <% @people.each do |person| %>
       <tr>
-        <td><%= person.name %></td>
+        <td><%= person.full_name %></td>
         <td><%= person.email %></td>
         <td>
           <a href="/people/<%= person.id %>/edit" class="btn btn-warning">Edit</a>

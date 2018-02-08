@@ -6,7 +6,7 @@ puts 'Generating people...'
 
 10.times do |x|
   Person.create(
-    name: Faker::Name.name,
+    full_name: Faker::Name.name,
     email: Faker::Internet.email
   )
 end

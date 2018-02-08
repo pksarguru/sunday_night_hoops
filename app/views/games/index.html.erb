@@ -1,12 +1,11 @@
 <div class="page-header">
   <h1>
     Games
-    <a href="/games/new" class="btn btn-lg btn-success">New Game</a>
   </h1>
 </div>
 
-<%= render partial: "games/current_game_card", locals: { game: @games.first } %>
+<%= render partial: "games/current_game_card", locals: { game: @current_game } %>
 
-<% @games.each do |game| %>
-  <%= render partial: "games/game_card", locals: { game: game, people: @people } %>
+<% @upcoming_games.each do |game| %>
+  <%= render partial: "games/game_card", locals: { game: game } %>
 <% end %>

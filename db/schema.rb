@@ -10,16 +10,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180120070617) do
+ActiveRecord::Schema.define(version: 20180207031255) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
-
-  create_table "access_codes", id: :bigserial, force: :cascade do |t|
-    t.string   "body"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
 
   create_table "games", force: :cascade do |t|
     t.string   "game_date"
@@ -32,7 +26,8 @@ ActiveRecord::Schema.define(version: 20180120070617) do
     t.string   "email"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string   "name"
+    t.string   "first_name"
+    t.string   "last_name"
   end
 
   create_table "players", force: :cascade do |t|
@@ -41,13 +36,6 @@ ActiveRecord::Schema.define(version: 20180120070617) do
     t.integer  "guests",     default: 0
     t.datetime "created_at",             null: false
     t.datetime "updated_at",             null: false
-  end
-
-  create_table "users", id: :bigserial, force: :cascade do |t|
-    t.string   "slack_id"
-    t.string   "name"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
   end
 
 end

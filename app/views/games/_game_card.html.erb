@@ -23,7 +23,7 @@
           <% end %>
         </div>
 
-        <a class="btn btn-success btn-lg" method="post" href="/create_player" role="button" data-toggle="modal" data-target="#selectPlayerModal">
+        <a class="btn btn-success btn-lg" method="post" href="/create_player" role="button" data-toggle="modal" data-target="#selectPlayerModal-<%= game.id %>">
           Join Game
         </a>
       </div>
@@ -31,6 +31,6 @@
   </div>
 </div>
 
-<div class="modal fade" id="selectPlayerModal" tabindex="-1" role="dialog">
-    <%= render partial: "people/select_modal", locals: { people: people, game: game } %>
+<div class="modal fade" id="selectPlayerModal-<%= game.id %>" tabindex="-1" role="dialog">
+    <%= render partial: "people/select_modal", locals: { people: game.available_people, game: game } %>
 </div>
