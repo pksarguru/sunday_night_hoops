@@ -1,28 +1,32 @@
-<p>
-  Current Players:
-</p>
+<div class="container">
+  <p>
+    Current Players:
+  </p>
 
-<ul class="list-group">
-  <% game.players.each do |player| %>
-    <li class="list-group-item">
-      <%= player.full_name %>
+  <ul class="list-group">
+    <% game.players.each do |player| %>
+      <li class="list-group-item">
+          <span class="mr-2 col">
+            <%= player.full_name %>
 
-      <% if player.guests > 0 %>
-      + <%= player.guests %> Guests
-      <% end %>
+            <% if player.guests > 0 %>
+            + <%= player.guests %> Guests
+            <% end %>
+          </span>
 
-      <span>
-        <form action="/players/<%= player.id %>" method="post">
-          <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+          <span class="col">
+            <form action="/players/<%= player.id %>" method="post">
+              <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
 
-          <input type="hidden" name="_method" value="delete">
+              <input type="hidden" name="_method" value="delete">
 
-          <a href="/players/<%= player.id %>/edit" class="btn btn-warning">Edit Guests</a>
-          <button type="submit" class="btn btn-danger" aria-label="Remove">
-            Remove
-          </button>
-        </form>
-      </span>
-    </li>
-  <% end %>
-</ul>
+              <a href="/players/<%= player.id %>/edit" class="btn btn-warning">Edit Guests</a>
+              <button type="submit" class="btn btn-danger" aria-label="Remove">
+                Remove
+              </button>
+            </form>
+          </span>
+      </li>
+    <% end %>
+  </ul>
+</div>
