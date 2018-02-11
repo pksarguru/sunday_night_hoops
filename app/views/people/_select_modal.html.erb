@@ -25,7 +25,7 @@
           </select>
         </div>
 
-        <div class="form-inline">
+        <div class="form-inline mb-4">
           <label for="guests" class="col-2 col-form-label">
             Guests
           </label>
@@ -37,7 +37,7 @@
               </button>
             </span>
 
-            <input class="form-control mb-2 mr-sm-2 mb-sm-0" type="number" name="guests" value="0" id="guests">
+            <input class="form-control mb-2 col-2 mb-sm-0" type="number" name="guests" value="0" id="guests">
 
             <span>
               <button type="button" class="btn btn-outline-primary" id="guests-button-up">
@@ -46,20 +46,20 @@
             </span>
           </div>
         </div>
-      </div>
 
-      <div class="form group">
-        <button type="submit" class="btn btn-success">
-          Save Changes
-        </button>
+        <div class="form group">
+          <button type="submit" class="btn-lg btn-success mb-4">
+            Join Game
+          </button>
 
-        <div class="">
-          Or:
+          <div class="mb-2">
+            Or if you don't see your name:
+          </div>
+
+          <a class="btn btn-success" href="/people/new">
+            Add A New Player
+          </a>
         </div>
-
-        <a class="btn btn-success" href="/people/new">
-          Add A New Player
-        </a>
       </div>
     </form>
   </div>
