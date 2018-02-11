@@ -25,13 +25,25 @@
           </select>
         </div>
 
-        <div class="form-group">
+        <div class="form-inline">
           <label for="guests" class="col-2 col-form-label">
             Guests
           </label>
 
           <div class="col-10">
-            <input class="form-control" type="number" name="guests" value="0" id="guests">
+            <span>
+              <button type="button" class="btn btn-outline-primary" id="guests-button-down">
+                <%= fa_icon "minus" %>
+              </button>
+            </span>
+
+            <input class="form-control mb-2 mr-sm-2 mb-sm-0" type="number" name="guests" value="0" id="guests">
+
+            <span>
+              <button type="button" class="btn btn-outline-primary" id="guests-button-up">
+                <%= fa_icon "plus" %>
+              </button>
+            </span>
           </div>
         </div>
       </div>
