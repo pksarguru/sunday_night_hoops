@@ -1,0 +1,9 @@
+.game-on {
+    border-color: #30A64A;
+    box-shadow: 0 0 10px #30A64A;
+}
+
+.game-off {
+    border-color: #DA3849;
+    box-shadow: 0 0 10px #DA3849;
+}

@@ -14,7 +14,11 @@ class Game < ApplicationRecord
   has_many :people, through: :players
 
   def game_on?
-    # method to count total players + guest is above 8
+    total_players = self.players.reduce(0) do |total_players, player|
+      total_players + 1 + player.guests
+    end
+
+    total_players >=8 ? true : false
   end
 
   def available_people
