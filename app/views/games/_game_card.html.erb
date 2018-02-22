@@ -1,6 +1,6 @@
 <div class="row p-3">
   <div class="col-md-12">
-    <div class="card <%= game.game_on? ? "game-on" : "game-off" %>">
+    <div class="card <%= "game-on" if game.game_on? %>">
       <h3 class="card-header">
         <div class="row">
           <div class="col-md-6">
@@ -8,7 +8,7 @@
           </div>
 
           <div class="col-md-6">
-            Players: <%= game.player_count %>
+            <i class="fas fa-users"></i> : <%= game.player_count %>
           </div>
 
         </div>
