@@ -3,10 +3,10 @@
 # Table name: games
 #
 #  id         :integer          not null, primary key
-#  game_date  :string
 #  cancelled  :boolean
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
+#  game_date  :date
 #
 
 class Game < ApplicationRecord
