@@ -1,35 +1,33 @@
-<div class="container">
-  <p>
-    Current Players:
-  </p>
+<p>
+  Current Players:
+</p>
 
-  <ul class="list-group">
-    <% game.players.each do |player| %>
-      <li class="list-group-item">
-          <div class="mr-2 col-md">
-            <%= player.full_name %>
+<ul class="list-group">
+  <% game.players.each do |player| %>
+    <li class="list-group-item">
+        <div class="mr-2 col-md">
+          <%= player.full_name %>
 
-            <% if player.guests > 0 %>
-            + <%= player.guests %> Guests
-            <% end %>
-          </div>
+          <% if player.guests > 0 %>
+          + <%= player.guests %> Guests
+          <% end %>
+        </div>
 
-          <div class="col-md">
-            <a href="/players/<%= player.id %>/edit" class="btn btn-warning">Edit Guests</a>
-          </div>
+        <div class="col-md">
+          <a href="/players/<%= player.id %>/edit" class="btn btn-warning">Edit Guests</a>
+        </div>
 
-          <div class="col-md">
-            <form action="/players/<%= player.id %>" method="post">
-              <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+        <div class="col-md">
+          <form action="/players/<%= player.id %>" method="post">
+            <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
 
-              <input type="hidden" name="_method" value="delete">
+            <input type="hidden" name="_method" value="delete">
 
-              <button type="submit" class="btn btn-danger" aria-label="Remove">
-                Remove
-              </button>
-            </form>
-          </div>
-      </li>
-    <% end %>
-  </ul>
-</div>
+            <button type="submit" class="btn btn-danger" aria-label="Remove">
+              Remove
+            </button>
+          </form>
+        </div>
+    </li>
+  <% end %>
+</ul>
