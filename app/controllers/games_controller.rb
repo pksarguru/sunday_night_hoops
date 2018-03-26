@@ -1,6 +1,6 @@
 class GamesController < ApplicationController
   def index
-    games = Game.where("game_date > ?", Date.today - 1.day)
+    games = Game.where("game_date > ?", Date.today - 2.day)
     @current_game = games.first
     @upcoming_games = games.drop(1)
     @people = Person.all
