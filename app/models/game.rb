@@ -10,6 +10,7 @@
 #
 
 class Game < ApplicationRecord
+  has_many :comments
   has_many :players, :class_name => "Player", :dependent => :destroy
   has_many :people, through: :players
 
