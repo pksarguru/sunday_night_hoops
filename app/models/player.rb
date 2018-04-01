@@ -15,4 +15,6 @@ class Player < ApplicationRecord
   belongs_to :game
 
   delegate :full_name, to: :person
+
+  validates :guests, presence: true
 end

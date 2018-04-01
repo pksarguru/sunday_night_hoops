@@ -1,4 +1,5 @@
 class PlayersController < ApplicationController
+  before_action :get_people, :get_games
   def new
     @player = Player.new
 
@@ -52,4 +53,14 @@ class PlayersController < ApplicationController
       redirect_back(:fallback_location => "/", :notice => "Player removed.")
     end
   end
+
+  private
+
+    def get_games
+      @games = Game.all
+    end
+
+    def get_people
+      @people = Person.all
+    end
 end

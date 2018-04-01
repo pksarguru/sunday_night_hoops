@@ -15,7 +15,7 @@ class Game < ApplicationRecord
 
   def game_on?
     total_players = self.players.reduce(0) do |total_players, player|
-      total_players + 1 + player.guests
+      total_players + 1 + player.try(:guests)
     end
 
     total_players >=8 ? true : false
