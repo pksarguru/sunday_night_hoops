@@ -1,6 +1,11 @@
 class GamesController < ApplicationController
   def index
+    if Game.where("game_date > ?", Date.today - 2.day).length == 0
+      generate_games
+    end
+
     games = Game.where("game_date > ?", Date.today - 2.day)
+
     @current_game = games.first
     @upcoming_games = games.drop(1)
     @people = Person.all
@@ -65,6 +70,22 @@ class GamesController < ApplicationController
       redirect_to("/", :notice => "Game deleted.")
     else
       redirect_back(:fallback_location => "/", :notice => "Game deleted.")
+    end
+  end
+
+  private
+
+  def generate_games
+    start_date = Date.today
+    end_date = Date.today + 3.months
+    hash_of_dates = (start_date..end_date).group_by(&:wday)
+    array_of_sundays = hash_of_dates[0]
+
+    array_of_sundays.each do |sunday_date|
+      Game.create(
+        cancelled: false,
+        game_date: sunday_date
+      )
     end
   end
 end
