@@ -45,7 +45,6 @@ Rails.application.routes.draw do
 
   # DELETE
   get "/delete_person/:id", :controller => "people", :action => "destroy"
-  #------------------------------
 
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+  resources :comments, only: [:create]
 end

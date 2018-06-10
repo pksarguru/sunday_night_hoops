@@ -23,9 +23,20 @@
     <a class="btn btn-success btn-lg" href="#" role="button" data-toggle="modal" data-target="#selectPlayerModal">
       Join Game
     </a>
+
+    <hr class="my-4">
+
+    <a class="btn btn-success btn-lg" href="#" role="button" data-toggle="modal" data-target="#addCommentModal">
+      Add Comment
+    </a>
   </p>
 </div>
 
+
 <div class="modal fade" id="selectPlayerModal" tabindex="-1" role="dialog">
     <%= render partial: "people/select_modal", locals: { people: game.available_people, game: game } %>
+</div>
+
+<div class="modal fade" id="addCommentModal" tabindex="-1" role="dialog">
+    <%= render partial: "comments/new_comment", locals: { people: game.available_people, game: game } %>
 </div>
